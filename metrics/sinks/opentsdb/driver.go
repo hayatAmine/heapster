@@ -119,6 +119,7 @@ func (tsdbSink *openTSDBSink) metricToPoint(name string, value core.MetricValue,
 
 	if value.MetricType.String() != "" {
 		seriesName = fmt.Sprintf("%s_%s", seriesName, value.MetricType.String())
+		seriesName ="app."+ seriesName
 	}
 
 	datapoint := opentsdbclient.DataPoint{
